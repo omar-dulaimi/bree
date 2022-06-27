@@ -121,14 +121,14 @@ test('job with worker data modified by "before worker created" event (sync)', as
   t.plan(2);
 
   const logger = {
-    info: (...args) => {
+    info(...args) {
       if (!args[1] || !args[1].message) {
         return;
       }
 
       t.is(args[1].message.meta, 'test1');
     },
-    error: () => {}
+    error() {}
   };
 
   const bree = new Bree({
@@ -155,14 +155,14 @@ test('job with worker data modified by "before worker created" event (async)', a
   t.plan(2);
 
   const logger = {
-    info: (...args) => {
+    info(...args) {
       if (!args[1] || !args[1].message) {
         return;
       }
 
       t.is(args[1].message.meta, 'test');
     },
-    error: () => {}
+    error() {}
   };
 
   const bree = new Bree({
